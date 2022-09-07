@@ -1,0 +1,16 @@
+{
+    "signup": "Sign Up",
+
+    "///DASHBOARD" : "Comment For Dashboard",
+    "search_anything" : "Search anything...",
+    "search_category" : "Search category...",
+    "all_category" : "All Category",
+    "add_data" : "Add Data",
+    "latest" : "Newest",
+    "longest" : "Latest",
+    "date" : "Date",
+    "name" : "Name",
+    "image" : "Image",
+    "created" : "Created",
+    "updated" : "Updated"
+}

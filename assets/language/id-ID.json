@@ -1,0 +1,16 @@
+{
+    "signup": "Daftar",
+
+    "///DASHBOARD" : "Comment For Dashboard",
+    "search_anything" : "Cari apapun disini...",
+    "search_category" : "Cari kategori...",
+    "all_category" : "Semua Kategori",
+    "add_data" : "Tambah Data",
+    "latest" : "Terbaru",
+    "longest" : "Terlama",
+    "date" : "Tanggal",
+    "name" : "Nama",
+    "image" : "Gambar",
+    "created" : "Dibuat",
+    "updated" : "Diperbarui"
+}
