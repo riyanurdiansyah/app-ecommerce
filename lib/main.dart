@@ -1,11 +1,11 @@
 import 'package:app_ecommerce/locator.dart';
+import 'package:app_ecommerce_admin/app_ecommerce_admin.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:app_ecommerce_setup/app_ecommerce_setup.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:app_ecommerce_admin/bloc/sidebar/sidebar_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() async {
@@ -22,7 +22,7 @@ void main() async {
         Locale('en', 'US'),
         Locale('id', 'ID'),
       ],
-      path: 'language',
+      path: 'assets/language',
       child: const MyApp(),
     ),
   );
@@ -33,11 +33,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (kIsWeb) {
+    if (!kIsWeb) {
       return MultiBlocProvider(
         providers: [
           BlocProvider<SidebarBloc>(
             create: (context) => SidebarBloc(),
+          ),
+          BlocProvider<CategoryBloc>(
+            create: (context) => CategoryBloc(),
           ),
         ],
         child: MaterialApp(
@@ -52,7 +55,7 @@ class MyApp extends StatelessWidget {
             ),
           ),
           debugShowCheckedModeBanner: false,
-          initialRoute: AppRouteName.splash,
+          initialRoute: AppRouteName.category,
           onGenerateRoute: AppRouteWeb.router.generator,
         ),
       );

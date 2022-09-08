@@ -28,9 +28,9 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   app_ecommerce_admin:
-    path: ../app_ecommerce_admin
+    path: ../app-ecommerce-admin
   app_ecommerce_setup:
-    path: ../app_ecommerce_setup
+    path: ../app-ecommerce-setup
   cached_network_image: ^3.2.1
   cupertino_icons: ^1.0.2
   dio: ^4.0.6
