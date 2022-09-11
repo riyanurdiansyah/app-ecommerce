@@ -6,12 +6,13 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:app_ecommerce_setup/app_ecommerce_setup.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // GoRouter.setUrlPathStrategy(UrlPathStrategy.path);
-  if (!kIsWeb) {
+  GoRouter.setUrlPathStrategy(UrlPathStrategy.path);
+  if (kIsWeb) {
     setup();
   }
   await EasyLocalization.ensureInitialized();
@@ -33,30 +34,30 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (!kIsWeb) {
+    if (kIsWeb) {
       return MultiBlocProvider(
         providers: [
           BlocProvider<SidebarBloc>(
             create: (context) => SidebarBloc(),
           ),
-          BlocProvider<CategoryBloc>(
-            create: (context) => CategoryBloc(),
-          ),
         ],
-        child: MaterialApp(
-          scrollBehavior: MyCustomScrollBehavior(),
-          localizationsDelegates: context.localizationDelegates,
-          supportedLocales: context.supportedLocales,
-          locale: context.locale,
-          title: "WEB HAMBURIN",
-          theme: ThemeData(
-            textTheme: GoogleFonts.poppinsTextTheme(
-              Theme.of(context).textTheme,
+        child: RepositoryProvider(
+          create: (context) => CategoryRepository(),
+          child: MaterialApp(
+            scrollBehavior: MyCustomScrollBehavior(),
+            localizationsDelegates: context.localizationDelegates,
+            supportedLocales: context.supportedLocales,
+            locale: context.locale,
+            title: "WEB HAMBURIN",
+            theme: ThemeData(
+              textTheme: GoogleFonts.poppinsTextTheme(
+                Theme.of(context).textTheme,
+              ),
             ),
+            debugShowCheckedModeBanner: false,
+            initialRoute: AppRouteName.category,
+            onGenerateRoute: AppRouteWeb.router.generator,
           ),
-          debugShowCheckedModeBanner: false,
-          initialRoute: AppRouteName.category,
-          onGenerateRoute: AppRouteWeb.router.generator,
         ),
       );
     } else {
