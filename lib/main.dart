@@ -40,24 +40,24 @@ class MyApp extends StatelessWidget {
           BlocProvider<SidebarBloc>(
             create: (context) => SidebarBloc(),
           ),
-        ],
-        child: RepositoryProvider(
-          create: (context) => CategoryRepository(),
-          child: MaterialApp(
-            scrollBehavior: MyCustomScrollBehavior(),
-            localizationsDelegates: context.localizationDelegates,
-            supportedLocales: context.supportedLocales,
-            locale: context.locale,
-            title: "WEB HAMBURIN",
-            theme: ThemeData(
-              textTheme: GoogleFonts.poppinsTextTheme(
-                Theme.of(context).textTheme,
-              ),
-            ),
-            debugShowCheckedModeBanner: false,
-            initialRoute: AppRouteName.category,
-            onGenerateRoute: AppRouteWeb.router.generator,
+          BlocProvider<PromoBloc>(
+            create: (context) => PromoBloc()..add(GetAllPromo()),
           ),
+        ],
+        child: MaterialApp(
+          scrollBehavior: MyCustomScrollBehavior(),
+          localizationsDelegates: context.localizationDelegates,
+          supportedLocales: context.supportedLocales,
+          locale: context.locale,
+          title: "WEB HAMBURIN",
+          theme: ThemeData(
+            textTheme: GoogleFonts.poppinsTextTheme(
+              Theme.of(context).textTheme,
+            ),
+          ),
+          debugShowCheckedModeBanner: false,
+          initialRoute: AppRouteName.category,
+          onGenerateRoute: AppRouteWeb.router.generator,
         ),
       );
     } else {
