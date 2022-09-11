@@ -40,9 +40,6 @@ class MyApp extends StatelessWidget {
           BlocProvider<SidebarBloc>(
             create: (context) => SidebarBloc(),
           ),
-          BlocProvider<PromoBloc>(
-            create: (context) => PromoBloc()..add(GetAllPromo()),
-          ),
         ],
         child: MaterialApp(
           scrollBehavior: MyCustomScrollBehavior(),
@@ -56,7 +53,7 @@ class MyApp extends StatelessWidget {
             ),
           ),
           debugShowCheckedModeBanner: false,
-          initialRoute: AppRouteName.category,
+          initialRoute: AppRouteName.signin,
           onGenerateRoute: AppRouteWeb.router.generator,
         ),
       );
