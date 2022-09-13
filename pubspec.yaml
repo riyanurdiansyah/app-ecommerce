@@ -33,8 +33,10 @@ dependencies:
     path: ../app-ecommerce-setup
   cached_network_image: ^3.2.1
   cupertino_icons: ^1.0.2
+  dartz: ^0.10.1
   dio: ^4.0.6
   easy_localization: ^3.0.1
+  equatable: ^2.0.5
   fluro: ^2.0.3
   flutter:
     sdk: flutter
